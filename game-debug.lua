@@ -10,20 +10,19 @@ local Turns = require("src.game.turn.turn")
 
 local debug = {}
 
-local function testPlayers(n)
-    local list = {}
+local function newDebugPlayer(n)
+    local players = {}
     for i = 1, n do
         local p = Player.new("P"..i)
-        p.chips = Chips.new(0)
-        table.insert(list, p)
+        table.insert(players, p)
     end
-    return list
+    return players
 end
 
 
 local deck = StandardDeck.new()
 local discard = Discard.new()
-local players = testPlayers(4)
+local players = newDebugPlayer(4)
 local debugPlayer
 
 function debug.load()
