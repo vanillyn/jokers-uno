@@ -1,7 +1,8 @@
 
-<p align="center" style="line-height: 100%; margin-top: 0.04in; margin-bottom: 0.08in; page-break-after: avoid">
-<img width="200" src="https://raw.githubusercontent.com/vanillyn/jokers-uno/main/assets/default/ui/logo/LogoLong.png"></img>
- by vanillyn </p>
+<h1 align="center">
+<img width="500" src="https://raw.githubusercontent.com/vanillyn/jokers-uno/main/assets/default/ui/logo/LogoLong.png"></img>
+</h1>
+<p align="center"> by vanillyn </p>
 <p><br/>
 <br/>
 
