@@ -1,13 +1,12 @@
-local StandardDeck = require("src.decks.standard.standard")
+local StandardDeck = require("src.decks.standard.definition")
 local Discard = require("src.piles.discard")
-local TestUI = require("src.ui.debug.test")
+local TestUI, PlayerDebug = require("src.ui.debug.test")
 local CardUI = require("src.ui.cardui")
 local HandUI = require("src.ui.hand")
 local Playing = require("src.game.playing")
 local Player = require("src.game.player.player")
 local Chips = require("src.game.player.chips")
 local Turns = require("src.game.turn.turn")
-local playerdebug = require("src.ui.debug.playerdebug")
 
 local debug = {}
 
@@ -76,7 +75,7 @@ function debug.draw()
     love.graphics.print("turn: " .. Turns.getCurrentPlayer().id, 50, 20)
 
     TestUI.draw(TestUI)
-    playerdebug.draw(players, debugPlayer.id)
+    TestUI.player(players, debugPlayer.id)
     CardUI.draw(debugPlayer.hand)
     CardUI.draw(discard)
 
