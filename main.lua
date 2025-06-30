@@ -23,36 +23,53 @@ local hand = Hand.new()
 local deck = StandardDeck.new()
 local discard = Discard.new()
 local players = testPlayers(4)
-
+local debugPlayer
 function love.load()
-    
+
     Turns.setPlayers(players)
     Turns.startGame(deck, discard)
+    debugPlayer = Turns.getCurrentPlayer()
+
     deck:shuffle()
     CardUI.registerRenderer("hand", require("src.ui.hand"))
     CardUI.registerRenderer("discard", require("src.ui.discard"))
     
     TestUI:addButton(200, 50, 200, 30, "TEST play card last drawn", function()
-        Playing.play(hand, discard)
+        Playing.play(debugPlayer.hand, discard)
     end)
 
-    TestUI:addButton(270, 50, 100, 30, "Next Turn", function()
+    TestUI:addButton(420, 50, 100, 30, "TEST turn next", function()
         Turns.turnEnd()
     end)
+
+    TestUI:addButton(420, 85, 100, 36, "TEST debug next player", function()
+        Turns.turnEnd()
+        debugPlayer = Turns.getCurrentPlayer()
+    end)
+
 
     TestUI:addButton(50, 50, 120, 30, "TEST draw card", function ()
         local card = deck:drawTop()
         print("You drew:", card.name, "("..card.desc..")")
 
         if card then
-            hand:add(card)
+            debugPlayer.hand:add(card)
         end
     end)
+
+    for i, p in ipairs(players) do
+        print(p.id .. ":")
+        for _, card in ipairs(p.hand:getAll()) do
+            print(" -", card.name)
+        end
+    end
+
 end
 
 function love.draw()
     TestUI.draw(TestUI)
-    CardUI.draw(hand)
+    love.graphics.print("Current player: " .. debugPlayer.id, 50, 0)
+    CardUI.draw(debugPlayer.hand)
     CardUI.draw(discard)
     local currentp = Turns.getCurrentPlayer()
     love.graphics.print("Current turn: " .. currentp.id, 50, 20)

@@ -52,3 +52,5 @@ function Turns.startGame(deck, discard)
 
     Turns.turnStart()
 end
+
+return Turns
