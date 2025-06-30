@@ -13,7 +13,7 @@ end
 
 function TestUI:draw()
   for _, b in ipairs(self.buttons) do
-    love.graphics.setColor(1, 1, 1)
+    love.graphics.setColor(1,1,1)
     love.graphics.rectangle("line", b.x, b.y, b.w, b.h)
     love.graphics.printf(b.label, b.x, b.y + b.h / 2 - 6, b.w, "center")
   end

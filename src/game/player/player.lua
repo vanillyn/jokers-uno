@@ -1,5 +1,5 @@
-local Hand = require("src.player.hand")
-local Chips= require("src.player.chips")
+local Hand = require("src.game.player.hand")
+local Chips= require("src.game.player.chips")
 local Player = {}
 
 Player.__index = Player

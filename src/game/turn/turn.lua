@@ -29,7 +29,7 @@ function Turns.startGame(deck, discard)
     assert(#players > 0, "no players in game, aborting...")
 
     for _, p in ipairs(players) do
-        p.hand = require("src.player.hand").new()
+        p.hand = require("src.game.player.hand").new()
         p.chips:modify("subtract", p.chips:get())
     end
 

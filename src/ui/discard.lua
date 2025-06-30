@@ -13,6 +13,16 @@ function DiscardUI.draw(pile)
   else
     love.graphics.printf("empty", x, y + h/2 - 6, w, "center")
   end
+  local mx, my = love.mouse.getPosition()
+  if mx >= x and mx <= x + w and my >= y and my <= y + h then
+    if pile.lastPlayed then
+      for i, c in ipairs(pile.lastPlayed) do
+        local dx = x + (i - 1) * 60 + 80
+        love.graphics.rectangle("line", dx, y, 50, 70)
+        love.graphics.printf(c.name, dx, y +25, 50, "center")
+      end
+    end
+  end
 end
 
 return DiscardUI

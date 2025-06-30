@@ -4,9 +4,10 @@ local Deck = {}
 Deck.__index = Deck
 setmetatable(Deck, {__index = CardPile})
 
-function Deck.new()
+function Deck.new(values)
   local self = CardPile.new()
   setmetatable(self, Deck)
+  self.values = values
   return self
 end
 

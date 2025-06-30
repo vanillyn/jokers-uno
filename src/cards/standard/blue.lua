@@ -1,21 +1,29 @@
 local Card = require("src.cards.card")
-local StandardDeck = require("src.decks.standard")
 
-local function newCard(rank, desc)
-    local card = Card.new("blue", rank, desc)
-    StandardDeck.register(card)
+function RegisterCards(deck)
+    local values = deck.values
+
+    local function newCard(rank, desc)
+        local value = values[rank] or 0
+        deck:add(Card.new("blue", rank, desc, value))
+    end
+
+    newCard("ZERO", {name = "Blue Zero", desc = "A standard blue zero. Also acts as 10, going after 9 and before Reverse."})
+    newCard("ACE", {name = "Blue Ace", desc = "A standard blue ace. Goes both before 2 and after Draw."})
+    newCard("THREE", {name = "Blue Three", desc = "A standard blue three."})
+    newCard("FOUR", {name = "Blue Four", desc = "A standard blue four."})
+    newCard("FIVE", {name = "Blue Five", desc = "A standard blue five."})
+    newCard("SIX", {name = "Blue Six", desc = "A standard blue six."})
+    newCard("SEVEN", {name = "Blue Seven", desc = "A standard blue seven."})
+    newCard("EIGHT", {name = "Blue Eight", desc = "A standard blue eight."})
+    newCard("NINE", {name = "Blue Nine", desc = "A standard blue nine."})
+    newCard("REVERSE", {name = "Blue Reverse", desc = "A standard blue reverse. When the highest played card, the direction of play reverses."})
+    newCard("SKIP", {name = "Blue Skip", desc = "A standard blue skip. When the highest played card, the next player is skipped."})
+    newCard("DRAW", {name = "Blue Draw Two", desc = "A standard blue draw two. When the highest played card, the next player draws two cards and is skipped."})
+    newCard("TWO", {name = "Blue Two", desc = "A standard blue two."})
+
 end
 
-newCard(0, {name = "Blue Zero", desc = "A standard blue zero. Also acts as 10, going after 9 and before Reverse."})
-newCard(0, {name = "Blue Ace", desc = "A standard blue ace. Goes both before 2 and after Draw."})
-newCard(0, {name = "Blue Two", desc = "A standard blue two."})
-newCard(0, {name = "Blue Three", desc = "A standard blue three."})
-newCard(0, {name = "Blue Four", desc = "A standard blue four."})
-newCard(0, {name = "Blue Five", desc = "A standard blue five."})
-newCard(0, {name = "Blue Six", desc = "A standard blue six."})
-newCard(0, {name = "Blue Seven", desc = "A standard blue seven."})
-newCard(0, {name = "Blue Eight", desc = "A standard blue eight."})
-newCard(0, {name = "Blue Nine", desc = "A standard blue nine."})
-newCard(0, {name = "Blue Reverse", desc = "A standard blue reverse. When the highest played card, the direction of play reverses."})
-newCard(0, {name = "Blue Skip", desc = "A standard blue skip. When the highest played card, the next player is skipped."})
-newCard(0, {name = "Blue Draw Two", desc = "A standard blue draw two. When the highest played card, the next player draws two cards and is skipped."})
+return {
+  RegisterCards = RegisterCards
+}
