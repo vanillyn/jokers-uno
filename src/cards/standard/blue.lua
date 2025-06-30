@@ -1,0 +1,21 @@
+local Card = require("src.cards.card")
+local StandardDeck = require("src.decks.standard")
+
+local function newCard(rank, desc)
+    local card = Card.new("blue", rank, desc)
+    StandardDeck.register(card)
+end
+
+newCard(0, {name = "Blue Zero", desc = "A standard blue zero. Also acts as 10, going after 9 and before Reverse."})
+newCard(0, {name = "Blue Ace", desc = "A standard blue ace. Goes both before 2 and after Draw."})
+newCard(0, {name = "Blue Two", desc = "A standard blue two."})
+newCard(0, {name = "Blue Three", desc = "A standard blue three."})
+newCard(0, {name = "Blue Four", desc = "A standard blue four."})
+newCard(0, {name = "Blue Five", desc = "A standard blue five."})
+newCard(0, {name = "Blue Six", desc = "A standard blue six."})
+newCard(0, {name = "Blue Seven", desc = "A standard blue seven."})
+newCard(0, {name = "Blue Eight", desc = "A standard blue eight."})
+newCard(0, {name = "Blue Nine", desc = "A standard blue nine."})
+newCard(0, {name = "Blue Reverse", desc = "A standard blue reverse. When the highest played card, the direction of play reverses."})
+newCard(0, {name = "Blue Skip", desc = "A standard blue skip. When the highest played card, the next player is skipped."})
+newCard(0, {name = "Blue Draw Two", desc = "A standard blue draw two. When the highest played card, the next player draws two cards and is skipped."})

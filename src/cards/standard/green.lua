@@ -1,0 +1,21 @@
+local Card = require("src.cards.card")
+local StandardDeck = require("src.decks.standard")
+
+local function newCard(rank, desc)
+    local card = Card.new("green", rank, desc)
+    StandardDeck.register(card)
+end
+
+newCard(0, {name = "Green Zero", desc = "A standard green zero. Also acts as 10, going after 9 and before Reverse."})
+newCard(0, {name = "Green Ace", desc = "A standard green ace. Goes both before 2 and after Draw."})
+newCard(0, {name = "Green Two", desc = "A standard green two."})
+newCard(0, {name = "Green Three", desc = "A standard green three."})
+newCard(0, {name = "Green Four", desc = "A standard green four."})
+newCard(0, {name = "Green Five", desc = "A standard green five."})
+newCard(0, {name = "Green Six", desc = "A standard green six."})
+newCard(0, {name = "Green Seven", desc = "A standard green seven."})
+newCard(0, {name = "Green Eight", desc = "A standard green eight."})
+newCard(0, {name = "Green Nine", desc = "A standard green nine."})
+newCard(0, {name = "Green Reverse", desc = "A standard green reverse. When the highest played card, the direction of play reverses."})
+newCard(0, {name = "Green Skip", desc = "A standard green skip. When the highest played card, the next player is skipped."})
+newCard(0, {name = "Green Draw Two", desc = "A standard green draw two. When the highest played card, the next player draws two cards and is skipped."})
