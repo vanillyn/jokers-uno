@@ -1,5 +1,5 @@
-local Hand = require("hand")
-local Chips= require("chips")
+local Hand = require("src.player.hand")
+local Chips= require("src.player.chips")
 local Player = {}
 
 Player.__index = Player
@@ -15,3 +15,12 @@ function Player.new(id)
     return self
 end
 
+function Player:addEffect(effect)
+    table.insert(self.effects, effect)
+end
+
+function Player:clearAllEffects()
+    self.effects = {}
+end
+
+return Player
