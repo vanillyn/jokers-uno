@@ -1,5 +1,4 @@
 local DiscardUI = {}
-local Discard = require("src.piles.discard")
 
 function DiscardUI.draw(pile)
   local card = pile:peekTop()

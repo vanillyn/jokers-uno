@@ -17,7 +17,7 @@ end
 
 function Turns.turnStart()
     local player = Turns.currentPlayer
-    -- TODO: check for effects
+    -- TODO: check for the effects
 end
 
 function Turns.turnEnd()
