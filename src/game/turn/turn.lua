@@ -26,7 +26,7 @@ function Turns.turnEnd()
 end
 
 function Turns.startGame(deck, discard)
-    assert(#players > 0, "no players in game, aborting...")
+    assert(#players > 0, "no players in game")
 
     for _, p in ipairs(players) do
         p.hand = require("src.game.player.hand").new()

@@ -1,5 +1,4 @@
 local PlayerDebug = {}
-local HandEval = require("src.game.poker.handeval")
 
 
 function PlayerDebug.draw(players, cID)
@@ -19,14 +18,11 @@ function PlayerDebug.draw(players, cID)
       love.graphics.setColor(1, 1, 1)
     end
 
-    love.graphics.print("Player: " .. p.id, px, py)
-    love.graphics.print("Chips: " .. p.chips:get(), px, py + 15)
-    love.graphics.print("Cards: " .. p.hand:count(), px, py + 30)
-    love.graphics.print("Effects: " .. #p.effects, px, py + 45)
+    love.graphics.print("pid: " .. p.id, px, py)
+    love.graphics.print("chips: " .. p.chips:get(), px, py + 15)
+    love.graphics.print("hand: " .. p.hand:count(), px, py + 30)
+    love.graphics.print("effects: " .. #p.effects, px, py + 45)
 
-    local all = p.hand:getAll()
-    local possible = HandEval.evaluate(all)
-    love.graphics.print("HandType: " .. possible.type, px, py + 60)
   end
 end
 
